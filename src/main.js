@@ -1,4 +1,3 @@
-require('@babel/polyfill')
 import {
 	createApp
 } from 'vue'
@@ -16,12 +15,13 @@ import './permission'
 import Icon from '@/components/plugins/Icon'
 
 let app = createApp(App)
+app.use(router)
 app.component('Icon', Icon)
 app.provide('$dayjs', moment)
 app.provide('$api', api)
 app.provide('$cPath', cPath)
-app.use(router)
 store(app)
 plugins(app)
 app.mount('#app')
+
 export default app

@@ -93,7 +93,6 @@
 			}
 		},
 		created() {
-			console.log(this.detail)
 		},
 		mounted() {
 			let orgInfo = JSON.parse(window.sessionStorage.getItem('orgInfo'))

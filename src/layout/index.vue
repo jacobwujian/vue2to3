@@ -10,9 +10,13 @@
 			<Cbreadcrumb class="c-bread-crumb" />
 
 			<a-layout-content class="c-layout-content" :style="changeMainStyle">
-				<transition v-if="route.meta && route.meta.noLayout" name="fade-transform" mode="out-in">
-					<router-view />
-				</transition>
+				<router-view  v-if="route.meta && route.meta.noLayout" v-slot="{ Component }">
+					<keep-alive>
+						<transition name="fade-transform" mode="out-in">
+							<component :is="Component" />
+						</transition>
+					</keep-alive>
+				</router-view>
 				<a-card v-else class="c-card">
 					<div class="c-card-title">
 						{{ route.meta.title }}

@@ -21,7 +21,7 @@ NProgress.configure({
 const whiteList = ['/login', '/screen']
 
 const redirect404 = [{
-	path: '/adm/:catchAll(.*)',
+	path: '/adm:catchAll(.*)',
 	redirect: '/404',
 	hidden: true
 }]
@@ -41,7 +41,6 @@ router.beforeEach((to, from, next) => {
 		next()
 		return NProgress.done()
 	}
-
 	if (getToken) {
 		const hasRoles = store.state.user && store.state.user.userInfo
 		if (hasRoles) {
@@ -63,7 +62,7 @@ router.beforeEach((to, from, next) => {
 					} else {
 						router.addRoutes(redirect404)
 						next({
-							...to,
+							path: to.path,
 							replace: true
 						})
 					}
@@ -124,7 +123,7 @@ export const loadMunes = (to, next, from) => {
 			resetRouter()
 			router.addRoutes(routeList)
 			next({
-				...to,
+				path: to.path,
 				replace: true
 			})
 		})

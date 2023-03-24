@@ -684,7 +684,6 @@
 				}
 			},
 			download(file) {
-				console.log(file)
 				if (file) {
 					const endPre = file.substring(file.indexOf('.'), file.length)
 					let type = 'application/pdf'

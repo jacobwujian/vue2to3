@@ -62,7 +62,7 @@ export const constantRoutes = [{
 		hidden: true
 	},
 	{
-		path: '/404',
+		path: '/adm:catchAll(.*)',
 		name: '404',
 		component: () => import('@/views/error-pages/404.vue'),
 		hidden: true,

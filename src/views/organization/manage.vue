@@ -186,7 +186,6 @@
 		detail = reactive(data)
 		window.sessionStorage.setItem('orgInfo', JSON.stringify(data))
 		modalVisible.value = true
-		console.log(detail)
 	}
 	// 重新上链
 	const reChain = (id) => {

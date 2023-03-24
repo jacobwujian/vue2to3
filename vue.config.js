@@ -9,7 +9,7 @@ module.exports = {
     config.plugins.delete('preload')
     config.plugins.delete('prefetch')
 
-    config.entry('main').add('@babel/polyfill') // main是入口js文件
+    config.entry('main').add('core-js/stable').add('regenerator-runtime/runtime') // main是入口js文件,加上es6+的编译环境
     config.plugin('ignore')
         .use(new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /zh-cn/))//忽略/moment/locale下的所有文件
 
